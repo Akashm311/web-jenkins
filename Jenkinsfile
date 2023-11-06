@@ -6,9 +6,9 @@ pipeline {
             steps {
                 script {
                     // Build the Docker image
-                    sh 'docker login'
+                    sh 'docker login https://hub.docker.com -u akashm311 -p Akashm@99'
 
-                    def imageName = "my-web-app:latest"
+                    def imageName = "akashm311/my-web-app:latest"
                     def dockerImage = docker.build(imageName, "-f Dockerfile .")
 
                     // Push the Docker image to a registry (optional)
