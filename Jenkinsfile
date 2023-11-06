@@ -17,8 +17,9 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                // Deploy the Docker container (e.g., using Docker Compose or Kubernetes)
-                // You need to configure this step based on your deployment strategy.
+                // Apply the Kubernetes YAML files (Deployment and Service)
+                sh 'kubectl apply -f kubernetes-deployment.yaml'
+                sh 'kubectl apply -f kubernetes-service.yaml'
             }
         }
     }
