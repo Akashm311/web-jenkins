@@ -6,6 +6,8 @@ pipeline {
             steps {
                 script {
                     // Build the Docker image
+                    sh 'docker login'
+
                     def imageName = "my-web-app:latest"
                     def dockerImage = docker.build(imageName, "-f Dockerfile .")
 
